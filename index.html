@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sonho Properties | Luxury Real Estate</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:'Poppins',sans-serif;
+      background:#071320;
+      color:#fff;
+      overflow-x:hidden;
+    }
+
+    :root{
+      --gold:#d4af37;
+      --navy:#071320;
+      --light:#f5f5f5;
+      --card:#0f1d2d;
+    }
+
+    header{
+      width:100%;
+      position:fixed;
+      top:0;
+      left:0;
+      z-index:999;
+      background:rgba(7,19,32,0.92);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid rgba(212,175,55,0.15);
+    }
+
+    nav{
+      width:90%;
+      margin:auto;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:18px 0;
+    }
+
+    .logo-wrap{
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+
+    .logo{
+      width:55px;
+      height:55px;
+      border-radius:50%;
+      background:linear-gradient(135deg,var(--gold),#f8e7a0);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:#071320;
+      font-weight:700;
+      font-size:22px;
+      box-shadow:0 0 20px rgba(212,175,55,0.4);
+    }
+
+    .brand h1{
+      font-size:20px;
+      color:var(--gold);
+    }
+
+    .brand span{
+      font-size:12px;
+      color:#ccc;
+    }
+
+    .nav-links{
+      display:flex;
+      gap:28px;
+      list-style:none;
+    }
+
+    .nav-links a{
+      text-decoration:none;
+      color:#fff;
+      font-size:15px;
+      transition:0.3s;
+    }
+
+    .nav-links a:hover{
+      color:var(--gold);
+    }
+
+    .hero{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:120px 10%;
+      background:
+      linear-gradient(rgba(0,0,0,0.55),rgba(0,0,0,0.75)),
+      url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=2073&auto=format&fit=crop') center/cover;
+    }
+
+    .hero-content{
+      max-width:800px;
+      text-align:center;
+      animation:fadeUp 1s ease;
+    }
+
+    .hero-content h2{
+      font-size:65px;
+      line-height:1.1;
+      margin-bottom:25px;
+    }
+
+    .hero-content h2 span{
+      color:var(--gold);
+    }
+
+    .hero-content p{
+      color:#ddd;
+      font-size:18px;
+      line-height:1.8;
+      margin-bottom:35px;
+    }
+
+    .btns{
+      display:flex;
+      justify-content:center;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      padding:15px 34px;
+      border:none;
+      border-radius:50px;
+      font-size:15px;
+      cursor:pointer;
+      transition:0.4s;
+      text-decoration:none;
+      font-weight:600;
+    }
+
+    .primary{
+      background:var(--gold);
+      color:#071320;
+      box-shadow:0 10px 30px rgba(212,175,55,0.25);
+    }
+
+    .primary:hover{
+      transform:translateY(-4px);
+    }
+
+    .secondary{
+      border:1px solid var(--gold);
+      color:#fff;
+      background:transparent;
+    }
+
+    .secondary:hover{
+      background:var(--gold);
+      color:#071320;
+    }
+
+    section{
+      padding:90px 10%;
+    }
+
+    .section-title{
+      text-align:center;
+      margin-bottom:60px;
+    }
+
+    .section-title h2{
+      font-size:42px;
+      color:var(--gold);
+      margin-bottom:12px;
+    }
+
+    .section-title p{
+      color:#bbb;
+    }
+
+    .services{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:25px;
+    }
+
+    .service-card{
+      background:var(--card);
+      padding:35px;
+      border-radius:24px;
+      transition:0.4s;
+      border:1px solid rgba(212,175,55,0.1);
+    }
+
+    .service-card:hover{
+      transform:translateY(-10px);
+      border-color:var(--gold);
+      box-shadow:0 10px 40px rgba(0,0,0,0.35);
+    }
+
+    .service-card h3{
+      margin:20px 0 15px;
+      color:var(--gold);
+    }
+
+    .service-card p{
+      color:#cfcfcf;
+      line-height:1.7;
+      font-size:15px;
+    }
+
+    .properties{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+      gap:28px;
+    }
+
+    .property-card{
+      background:var(--card);
+      border-radius:25px;
+      overflow:hidden;
+      transition:0.4s;
+      border:1px solid rgba(212,175,55,0.1);
+    }
+
+    .property-card:hover{
+      transform:scale(1.02);
+    }
+
+    .property-card img{
+      width:100%;
+      height:250px;
+      object-fit:cover;
+    }
+
+    .property-content{
+      padding:25px;
+    }
+
+    .property-content h3{
+      color:var(--gold);
+      margin-bottom:10px;
+    }
+
+    .property-content p{
+      color:#ddd;
+      margin-bottom:15px;
+      line-height:1.7;
+    }
+
+    .price{
+      font-size:22px;
+      font-weight:700;
+    }
+
+    .stats{
+      background:linear-gradient(135deg,#0b1726,#111f31);
+    }
+
+    .stats-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:25px;
+      text-align:center;
+    }
+
+    .stat-card{
+      padding:35px;
+      border-radius:20px;
+      background:rgba(255,255,255,0.03);
+    }
+
+    .stat-card h2{
+      color:var(--gold);
+      font-size:50px;
+    }
+
+    .stat-card p{
+      margin-top:10px;
+      color:#ddd;
+    }
+
+    .about{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+      gap:50px;
+      align-items:center;
+    }
+
+    .about img{
+      width:100%;
+      border-radius:30px;
+      box-shadow:0 10px 50px rgba(0,0,0,0.35);
+    }
+
+    .about-content h2{
+      font-size:45px;
+      color:var(--gold);
+      margin-bottom:20px;
+    }
+
+    .about-content p{
+      color:#ddd;
+      line-height:1.9;
+      margin-bottom:20px;
+    }
+
+    .contact-box{
+      background:var(--card);
+      padding:50px;
+      border-radius:30px;
+      text-align:center;
+      border:1px solid rgba(212,175,55,0.1);
+    }
+
+    .contact-box h2{
+      color:var(--gold);
+      margin-bottom:15px;
+      font-size:40px;
+    }
+
+    .contact-box p{
+      color:#ddd;
+      margin-bottom:12px;
+      font-size:17px;
+    }
+
+    .socials{
+      margin-top:30px;
+      display:flex;
+      justify-content:center;
+      gap:18px;
+      flex-wrap:wrap;
+    }
+
+    .socials a{
+      text-decoration:none;
+      color:#fff;
+      border:1px solid rgba(212,175,55,0.4);
+      padding:12px 24px;
+      border-radius:50px;
+      transition:0.3s;
+    }
+
+    .socials a:hover{
+      background:var(--gold);
+      color:#071320;
+    }
+
+    footer{
+      padding:30px 10%;
+      text-align:center;
+      border-top:1px solid rgba(255,255,255,0.06);
+      color:#aaa;
+    }
+
+    @keyframes fadeUp{
+      from{
+        opacity:0;
+        transform:translateY(40px);
+      }
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    @media(max-width:768px){
+      .hero-content h2{
+        font-size:42px;
+      }
+
+      nav{
+        flex-direction:column;
+        gap:18px;
+      }
+
+      .nav-links{
+        flex-wrap:wrap;
+        justify-content:center;
+      }
+
+      .contact-box{
+        padding:30px;
+      }
+    }
+  </style>
+</head>
+<body>
+<!-- Logos updated with latest uploaded image file names -->
+
+<header>
+  <nav>
+    <div class="logo-wrap">
+      <div style="display:flex;align-items:center;gap:14px;">
+        <img src="logo1.png" alt="Sonho Group Logo" style="width:60px;height:60px;border-radius:50%;object-fit:cover;box-shadow:0 0 25px rgba(212,175,55,0.55);border:2px solid rgba(212,175,55,0.4);">
+              </div>
+      <div class="brand">
+        <h1>SONHO PROPERTIES</h1>
+        <span>SONHO GROUP</span>
+      </div>
+    </div>
+
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#properties">Properties</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="hero" id="home">
+  <div class="hero-content">
+    <img src="logo2.png" alt="Sonho Properties Main Logo" style="width:420px;max-width:95%;margin-bottom:35px;object-fit:contain;filter:drop-shadow(0 0 40px rgba(212,175,55,0.5));">
+    <h2>Find Your <span>Luxury Dream Property</span> With SONHO PROPERTIES</h2>
+    <p>
+      Premium real estate brokerage services in Sri Lanka. We connect buyers, investors, and sellers with exclusive luxury properties, apartments, villas, commercial spaces, and land opportunities.
+    </p>
+
+    <div class="btns">
+      <a href="#properties" class="btn primary">Explore Properties</a>
+      <a href="#contact" class="btn secondary">Contact Us</a>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="section-title">
+    <h2>Our Services</h2>
+    <p>Professional real estate brokerage solutions tailored for you.</p>
+  </div>
+
+  <div class="services">
+    <div class="service-card">
+      <h3>Luxury Property Sales</h3>
+      <p>Exclusive luxury homes, villas, apartments, and penthouses for high-end buyers and investors.</p>
+    </div>
+
+    <div class="service-card">
+      <h3>Property Investments</h3>
+      <p>We help investors discover profitable real estate opportunities across Sri Lanka.</p>
+    </div>
+
+    <div class="service-card">
+      <h3>Commercial Brokerage</h3>
+      <p>Office spaces, hotels, restaurants, and commercial properties with premium market access.</p>
+    </div>
+
+    <div class="service-card">
+      <h3>Land & Development</h3>
+      <p>Strategic land opportunities for residential and commercial developments.</p>
+    </div>
+  </div>
+</section>
+
+<section id="properties">
+  <div class="section-title">
+    <h2>Why Choose Sonho Properties</h2>
+    <p>Luxury real estate brokerage with modern marketing and trusted client relationships.</p>
+  </div>
+
+  <div class="services">
+
+    <div class="service-card">
+      <h3>Premium Brokerage</h3>
+      <p>Professional real estate brokerage services with a luxury brand identity and trusted client communication.</p>
+    </div>
+
+    <div class="service-card">
+      <h3>Digital Property Marketing</h3>
+      <p>Modern social media marketing, premium visuals, and targeted campaigns to connect serious buyers and investors.</p>
+    </div>
+
+    <div class="service-card">
+      <h3>Client Focused Service</h3>
+      <p>Fast communication, smooth transactions, and personalized support for every real estate client.</p>
+    </div>
+
+  </div>
+</section>
+
+<section class="stats">
+  <div class="stats-grid">
+    <div class="stat-card">
+      <h2>100+</h2>
+      <p>Luxury Listings</p>
+    </div>
+
+    <div class="stat-card">
+      <h2>50+</h2>
+      <p>Happy Clients</p>
+    </div>
+
+    <div class="stat-card">
+      <h2>24/7</h2>
+      <p>Client Support</p>
+    </div>
+
+    <div class="stat-card">
+      <h2>100%</h2>
+      <p>Trusted Service</p>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="about">
+    <img src="logo2.png" alt="Sonho Properties Logo">
+
+    <div class="about-content">
+      <h2>About Sonho Properties</h2>
+      <p>
+        Sonho Properties is a premium real estate brokerage brand under the Sonho Group. We specialize in connecting buyers, sellers, and investors with exceptional luxury properties across Sri Lanka.
+      </p>
+
+      <p>
+        Our mission is to deliver trust, professionalism, and world-class service while helping clients secure the perfect property investments.
+      </p>
+
+      <a href="#contact" class="btn primary">Work With Us</a>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="contact-box">
+    <h2>Get In Touch</h2>
+    <p>📞 +94 76 230 4930</p>
+    <p>🌐 Official Website: https://sites.google.com/view/sonhoproperties-com/home</p>
+    <p>📧 Email: sonhoprop@gmail.com</p>
+    <p>📍 Location: Sri Lanka</p>
+    <p>Sonho Group | Sonho Properties</p>
+
+    <div class="socials">
+      <a href="https://sites.google.com/view/sonhoproperties-com/home" target="_blank">Google Site</a>
+      <a href="https://wa.me/94762304930" target="_blank">WhatsApp</a>
+      <a href="https://www.instagram.com/sonhoprop/" target="_blank">Instagram</a>
+      <a href="https://www.facebook.com/profile.php?id=61582210444785" target="_blank">Facebook</a>
+      <a href="https://www.tiktok.com/@sonhoproperties?lang=en" target="_blank">TikTok</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Sonho Properties | Designed for Luxury Real Estate</p>
+</footer>
+
+<script>
+  window.addEventListener('scroll',()=>{
+    const header=document.querySelector('header');
+    header.style.background=window.scrollY>50
+    ? 'rgba(7,19,32,0.98)'
+    : 'rgba(7,19,32,0.92)';
+  });
+
+  const cards=document.querySelectorAll('.service-card,.property-card,.stat-card');
+
+  const observer=new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        entry.target.style.opacity='1';
+        entry.target.style.transform='translateY(0)';
+      }
+    });
+  },{threshold:0.2});
+
+  cards.forEach(card=>{
+    card.style.opacity='0';
+    card.style.transform='translateY(40px)';
+    card.style.transition='all 0.7s ease';
+    observer.observe(card);
+  });
+</script>
+
+</body>
+</html>
